@@ -1,0 +1,16 @@
+.modal {
+    display: flex;
+    position: absolute;
+    max-width: calc(100vw - 48px);
+    max-height: calc(100vh - 24px);
+    top: calc(10%);
+    left: calc(10%);
+                bottom: 70px;
+
+
+         
+   
+}
+.overlay {
+    display:block;
+}

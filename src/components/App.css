@@ -1,0 +1,15 @@
+body{
+    height: '100vh';
+    justify-content: center;
+    align-items: center;
+    font-size: 40;
+    color: #fff;
+    background-color:#000000d2;
+}
+
+
+html {
+    box-sizing: border-box;
+    width: 100vw;
+    overflow-x: hidden;
+}

@@ -1,0 +1,15 @@
+:root {
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --animation-duration: 250ms;
+}
+.imageGallery{
+    display: grid;
+        max-width:1024px;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-auto-rows: 240px;
+        grid-gap: 30px;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    list-style: none;
+}
