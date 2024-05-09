@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { SearchBar } from '../Search/SearchBar';
-import axios from "axios";
+
 import { Modal } from '../Modal/Modal';
 import { ImageGallery } from '../ImageGallery/ImageGallery'
 import { Loader } from "components/Loader/Loader";
 import { BtmMoreImage } from "components/BtmMoreImage/BmMoreImage";
+import { fetchPhotos } from "components/utils/api/fetchPhotos";
+
 
 // const INITCONTACTS = {
 //   urlSearch:"https://pixabay.com/api/?",
@@ -34,24 +36,7 @@ export const AppStart = () => {
   }
 
   useEffect(() => {
-    const fetchPhotos = async () => {
-      if (searchText === '') {
-        return(1);
-      }
-      setLoader(true);
-      try {
-        const response = await axios.get(
-          `https://pixabay.com/api/?q=${searchText}&page=${page}&key=${keyApiPixabay}&image_type=photo&orientation=horizontal&per_page=12`
-        );
-        setSearchPhotos((preValue) => [...preValue, ...response.data.hits]);
-        setMaxPage(response.data.totalHits / 12);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-      setLoader(false)
-    };
-    fetchPhotos()
- 
+    fetchPhotos({ searchText, page, keyApiPixabay, setSearchPhotos, setMaxPage, setLoader });
   }, [searchText, page]);
   
   const updatePage = () => {
